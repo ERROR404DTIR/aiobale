@@ -1,5 +1,7 @@
 # Aiobale
 
+<p align="center"><img src="assets/readme-banner.svg" alt="Animated AioBale async client banner" width="100%"></p>
+
 <div align="center">
 
 [![CI Test Suite](https://github.com/aminmadaniofficial/aiobale/actions/workflows/ci.yml/badge.svg)](https://github.com/aminmadaniofficial/aiobale/actions/workflows/ci.yml)
@@ -10,37 +12,37 @@
 
 **Modern, fast, fully asynchronous Python framework for Bale Messenger.**
 
-[📖 Interactive Documentation](https://aminmadaniofficial.github.io/aiobale/) • [📦 PyPI Package](https://pypi.org/project/aiobale-py/) • [🚀 Quickstart](#-quickstart) • [✨ Key Features](#-key-features) • [📁 Ready Examples](#-ready-to-run-examples)
+[ Interactive Documentation](https://aminmadaniofficial.github.io/aiobale/) • [ PyPI Package](https://pypi.org/project/aiobale-py/) • [ Quickstart](#-quickstart) • [ Key Features](#-key-features) • [ Ready Examples](#-ready-to-run-examples)
 
 </div>
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 **Aiobale** (`aiobale-py`) is a high-performance, asynchronous Python framework built on top of `asyncio`, WebSockets, and Protocol Buffers for the **Bale Messenger** platform. Designed with inspiration from modern bot frameworks like `aiogram`, it allows developers to build userbots, official bots, automated services, and group management systems with minimal resource usage and complete type safety.
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-- **⚡ Fully Asynchronous:** Built natively on Python `asyncio` for non-blocking I/O and high concurrency.
-- **💬 Interactive Conversations (`Conversation`):** Multi-step question & answer wizard flows with async context managers (`async with client.conversation(...) as conv:`).
-- **📜 History Iterator (`iter_messages`):** Asynchronously iterate and paginate through chat message histories with automated deduplication and chunking.
-- **🧠 Advanced FSM:** Multi-step conversational form management with `State`, `StatesGroup`, `MemoryStorage`, and persistent `SQLiteStorage`.
-- **🛡️ Middlewares & Rate Limiter:** Intercept events and prevent spam using `BaseMiddleware` and the built-in `MessageThrottler`.
-- **⌨️ Fluent Keyboards & Pagination:** Chainable `InlineKeyboardMarkup`, `ReplyKeyboardMarkup`, and `KeyboardPaginator` for multi-page menus.
-- **🔮 Rich Magic Filter (`F`) & Text Filters:** Filter events effortlessly with `F`, `Command`, `IsMedia`, `TextEquals`, `TextContains`, and logical combinators (`and_f`, `or_f`, `invert_f`).
-- **🔀 Modular Routing:** Structure large-scale codebases across multiple files using `Router` and sub-routers.
-- **🌐 Webhook HTTP Server:** Built-in lightweight `AiohttpWebhookServer` with secret token security for serverless and production deployments.
-- **📁 Smart Media & Downloads:** Direct file path (`str`), `Path`, raw `bytes`, and `io.BytesIO` support in all sending methods, plus 1-line `await message.download()`.
-- **🛠️ Command-Line CLI:** Scaffolding tool (`aiobale startproject my_bot`) and interactive phone session login (`aiobale login`).
-- **🛡️ Complete RPC Coverage (80+ Methods):** Full access to Messaging, Groups, Channels, Contacts, Presence, Reactions, and Wallet APIs.
-- **🧩 100% Type-Safe:** Powered by Pydantic v2 for robust data validation and complete IDE autocompletion.
+- ** Fully Asynchronous:** Built natively on Python `asyncio` for non-blocking I/O and high concurrency.
+- ** Interactive Conversations (`Conversation`):** Multi-step question & answer wizard flows with async context managers (`async with client.conversation(...) as conv:`).
+- ** History Iterator (`iter_messages`):** Asynchronously iterate and paginate through chat message histories with automated deduplication and chunking.
+- ** Advanced FSM:** Multi-step conversational form management with `State`, `StatesGroup`, `MemoryStorage`, and persistent `SQLiteStorage`.
+- **️ Middlewares & Rate Limiter:** Intercept events and prevent spam using `BaseMiddleware` and the built-in `MessageThrottler`.
+- **️ Fluent Keyboards & Pagination:** Chainable `InlineKeyboardMarkup`, `ReplyKeyboardMarkup`, and `KeyboardPaginator` for multi-page menus.
+- ** Rich Magic Filter (`F`) & Text Filters:** Filter events effortlessly with `F`, `Command`, `IsMedia`, `TextEquals`, `TextContains`, and logical combinators (`and_f`, `or_f`, `invert_f`).
+- ** Modular Routing:** Structure large-scale codebases across multiple files using `Router` and sub-routers.
+- ** Webhook HTTP Server:** Built-in lightweight `AiohttpWebhookServer` with secret token security for serverless and production deployments.
+- ** Smart Media & Downloads:** Direct file path (`str`), `Path`, raw `bytes`, and `io.BytesIO` support in all sending methods, plus 1-line `await message.download()`.
+- **️ Command-Line CLI:** Scaffolding tool (`aiobale startproject my_bot`) and interactive phone session login (`aiobale login`).
+- **️ Complete RPC Coverage (80+ Methods):** Full access to Messaging, Groups, Channels, Contacts, Presence, Reactions, and Wallet APIs.
+- ** 100% Type-Safe:** Powered by Pydantic v2 for robust data validation and complete IDE autocompletion.
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Install officially from PyPI
@@ -60,7 +62,7 @@ pip install git+https://github.com/aminmadaniofficial/aiobale.git
 
 ---
 
-## 🚀 Quickstart
+##  Quickstart
 
 Create a functional bot in less than 5 minutes:
 
@@ -75,7 +77,7 @@ client = Client(dp, session_file="my_bot")
 
 @dp.message(F.text == "/start")
 async def start_handler(message: Message):
-    await message.reply("Hello! Welcome to Aiobale 🚀")
+    await message.reply("Hello! Welcome to Aiobale ")
 
 @dp.message(IsText())
 async def echo_handler(message: Message):
@@ -93,7 +95,7 @@ When you run this script for the first time in your terminal, it will interactiv
 
 ---
 
-## 🎯 Code Showcases
+##  Code Showcases
 
 ### 1. Interactive Linear Conversation (Wizard)
 
@@ -113,7 +115,7 @@ async def register_flow(msg: Message, client: Client):
         await conv.send_message(f"Nice to meet you, {name_msg.text}! How old are you?")
         age_msg = await conv.get_response(timeout=60)
 
-        await conv.send_message(f"Registration successful! ✅\nName: {name_msg.text}\nAge: {age_msg.text}")
+        await conv.send_message(f"Registration successful! \nName: {name_msg.text}\nAge: {age_msg.text}")
 
 if __name__ == "__main__":
     client.run()
@@ -177,7 +179,7 @@ if __name__ == "__main__":
 
 ---
 
-## 📁 Ready-to-Run Examples
+##  Ready-to-Run Examples
 
 The [`examples/`](examples/) directory contains 6 complete, production-grade scripts demonstrating every core capability:
 
@@ -192,15 +194,15 @@ The [`examples/`](examples/) directory contains 6 complete, production-grade scr
 
 ---
 
-## 📚 Comprehensive Documentation
+##  Comprehensive Documentation
 
 The repository includes a modern, web-based interactive documentation website with zero emojis, custom Lucide icons, Dark/Light modes, live search (`Ctrl+K`), and reference guides for all 80+ methods:
 
-👉 **[Read the Full Documentation](https://aminmadaniofficial.github.io/aiobale/)**
+ **[Read the Full Documentation](https://aminmadaniofficial.github.io/aiobale/)**
 
 ---
 
-## 🏛️ Project Origin & Acknowledgements
+## ️ Project Origin & Acknowledgements
 
 This project is built upon the foundational work of the original `aiobale` library created by **Alireza Jahani** ([Enalite LD](https://github.com/Enalite)). 
 
@@ -208,6 +210,6 @@ It has been modernized, heavily refactored, debugged, and is now actively mainta
 
 ---
 
-## 📄 License
+##  License
 
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more details.
